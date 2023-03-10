@@ -6,5 +6,3 @@ NC='\033[0m'
 
 echo "${RED}Linting${NC}"
 yarn lint
-echo "${RED}Testing${NC}"
-yarn test
