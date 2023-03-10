@@ -1,0 +1,52 @@
+node_modules
+.env
+.*-env
+.serverless
+.serverless_nextjs
+.next
+yarn.lock
+**/*.zip
+next.config.js
+.vscode
+.npmrc
+
+# elasticsearch
+streams
+mappings
+
+# testing
+coverage
+tests
+
+# next.js
+.next
+out
+
+# production
+build
+dist
+lib
+
+# misc
+.DS_Store
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env.local
+.env.test
+.env.prod
+
+# generated
+next.config.js
+serverless.yml
+
+#generated
+public/robot.txt
+
+# scripts stuff to ignore
+scripts/series*.js
+scripts/sg_*.js

@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+RED='\033[0;31m'
+NC='\033[0m'
+
+echo "${RED}Formatting${NC}"
+npx pretty-quick --staged

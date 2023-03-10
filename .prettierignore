@@ -1,0 +1,7 @@
+.husky
+.github
+.dockerignore
+.env
+.eslint*
+docker-compose*
+.npmrc
