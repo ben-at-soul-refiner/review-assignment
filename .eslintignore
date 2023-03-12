@@ -25,7 +25,7 @@ out
 # production
 build
 dist
-lib
+bin
 
 # misc
 .DS_Store
