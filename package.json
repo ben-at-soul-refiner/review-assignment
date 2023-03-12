@@ -1,6 +1,6 @@
 {
   "name": "@soul-refiner/assignment",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "ben.m@soulrefiner.com",
   "license": "SEE LICENSE IN ./license.md",
   "description": "Code review assignment for interviews at Soul Refiner, 2023",
@@ -10,7 +10,7 @@
     "bin/**/*"
   ],
   "bin": {
-    "@soul-refiner/assignment": "bin/index.js"
+    "soul-refiner-assignment": "bin/index.js"
   },
   "include": [
     "/src"
