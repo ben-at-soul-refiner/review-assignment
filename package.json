@@ -1,6 +1,6 @@
 {
   "name": "@soul-refiner/assignment",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "ben.m@soulrefiner.com",
   "license": "SEE LICENSE IN ./license.md",
   "description": "Code review assignment for interviews at Soul Refiner, 2023",
@@ -19,7 +19,7 @@
   "exclude": [
     "node_modules"
   ],
-  "exports": "./build/index.js",
+  "exports": "./lib/index.js",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
@@ -35,7 +35,7 @@
     "prepare": "husky install",
     "lint": "yarn eslint ./**/*.{ts,tsx}",
     "deploy": "yarn build && yarn publish",
-    "assessment": "node ./lib/index.js"
+    "assignment": "node ./lib/index.js"
   },
   "dependencies": {
     "octokit": "^2.0.14",
