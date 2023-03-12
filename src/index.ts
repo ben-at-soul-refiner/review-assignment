@@ -24,8 +24,12 @@ import { createOAuthDeviceAuth } from '@octokit/auth-oauth-device';
 
     echo`Have a blessed day!`;
   } else if (position === '2') {
-    $`clear`;
-    echo`\nThis assignment will log you into your GitHub account\n`;
+    console.clear();
+    echo`🛑🛑 Attention 🛑🛑`;
+    echo`\nThis assignment tool will:\n`;
+    echo` - log you into your GitHub account\n - create a repository for you (with some starter code)\n - create a pull request for you to review`;
+
+    echo`\nYour task is to do a code review on that pull request\n`;
 
     const proceed = await question('Do you wish to proceed?\n\nEnter y/n: ');
     if (proceed === 'n') return;
@@ -52,36 +56,57 @@ import { createOAuthDeviceAuth } from '@octokit/auth-oauth-device';
 
       echo`Creating a repo...`;
 
-      const repo = await octokit.rest.repos.createUsingTemplate({
+      const repo = await octokit.rest.repos.createFork({
+        owner: 'ben-at-soul-refiner',
+        repo: 'express-template',
         name: 'soul-refiner-assessment',
-        template_owner: 'sindresorhus',
-        template_repo: 'electron-boilerplate',
-        private: false,
-        include_all_branches: true,
       });
 
-      if (repo.status !== 201) {
+      if (repo.status !== 202) {
         echo`GitHub failed to make a repo. Please ensure you are logged in and that you have no other repos named "soul-refiner-assessment"`;
         return;
       }
 
       echo`Creating a pull request...`;
 
-      sleep(4);
+      let PR_RETRIES = 6;
+      const owner = 'b-a-merritt';
 
-      const repoName = repo.data.name;
-      const owner = repo.data.owner.login;
+      while (PR_RETRIES > 0) {
+        try {
+          const pr = await octokit.request(
+            `POST /repos/${owner}/soul-refiner-assessment/pulls`,
+            {
+              owner: owner,
+              repo: 'soul-refiner-assessment',
+              title: `Pull request for ${owner} to review`,
+              body: 'Please review this pull request to continue with your application process',
+              head: 'b-a-merritt:pullrequest',
+              base: 'main',
+              headers: {
+                Accept: 'application/vnd.github+json',
+                'X-GitHub-Api-Version': '2022-11-28',
+              },
+            }
+          );
 
-      const pr = await octokit.rest.pulls.create({
-        repo: repoName,
-        base: 'main',
-        head: 'pullrequest',
-        owner: owner,
-        title: `Pull request for ${owner} to review`,
-        body: 'Please review this pull request to continue with your application process',
-      });
-
-      console.log(pr);
+          if (pr.status === 201) {
+            echo`\n✅✅ Success! ✅✅\n`;
+            echo`Please complete your code review at:\n${pr.data.html_url}`;
+            break;
+          } else {
+            setTimeout(() => {
+              PR_RETRIES--;
+            }, 5000);
+          }
+        } catch (error) {
+          setTimeout(() => {
+            PR_RETRIES--;
+          }, 5000);
+          if (PR_RETRIES === 0)
+            echo`Failed to create pull request. Please go to your GitHub account, create the PR, and do the code review on that PR`;
+        }
+      }
     } catch (error) {
       echo`GitHub failed to authenticate. Please ensure you logging into the correct account`;
       console.log(error);

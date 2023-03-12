@@ -21,6 +21,5 @@ rules:
   '@typescript-eslint/no-explicit-any': off
   '@typescript-eslint/ban-ts-comment': 1
   import/no-anonymous-default-export: 0
-  no-console: 2
   no-extra-boolean-cast: 0
   
