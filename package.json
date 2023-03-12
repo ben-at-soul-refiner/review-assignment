@@ -1,6 +1,6 @@
 {
-  "name": "review-assignment",
-  "version": "1.0.0",
+  "name": "@soul-refiner/assignment",
+  "version": "1.0.1",
   "author": "ben.m@soulrefiner.com",
   "license": "SEE LICENSE IN ./license.md",
   "description": "Code review assignment for interviews at Soul Refiner, 2023",
@@ -34,6 +34,7 @@
     "format": "prettier --write .",
     "prepare": "husky install",
     "lint": "yarn eslint ./**/*.{ts,tsx}",
+    "deploy": "yarn build && yarn publish",
     "assessment": "node ./lib/index.js"
   },
   "dependencies": {
