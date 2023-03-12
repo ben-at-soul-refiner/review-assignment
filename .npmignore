@@ -1,0 +1,8 @@
+src
+tsconfig.json
+.prettierignore
+.prettierrc.json
+.eslintignore
+.eslintrc.yml
+.husky
+Dockerfile

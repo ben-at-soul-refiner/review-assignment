@@ -10,7 +10,7 @@
     "bin/**/*"
   ],
   "bin": {
-    "soul-refiner-assessment": "bin/index.js"
+    "@soul-refiner/assignment": "bin/index.js"
   },
   "include": [
     "/src"
