@@ -8,7 +8,7 @@ import { createOAuthDeviceAuth } from '@octokit/auth-oauth-device';
   $.verbose = false;
   console.clear();
 
-  echo`\n✨✨ Welcome to the Soul Refiner application process ✨✨\n`;
+  echo`\n✨✨ Welcome to the Kingdomworks Studios application process ✨✨\n`;
 
   const position = await question(
     'Which position are you applying for today?\n1. Senior Infrastructure Engineer\n2. Senior Backend Engineer\n\nEnter 1/2: ',
