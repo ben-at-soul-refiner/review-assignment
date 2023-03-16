@@ -10,7 +10,7 @@
     "bin/**/*"
   ],
   "bin": {
-    "soul-refiner-assignment": "bin/index.js"
+    "kingdomworks-assignment": "bin/index.js"
   },
   "include": [
     "/src"
