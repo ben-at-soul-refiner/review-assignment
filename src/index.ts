@@ -144,7 +144,6 @@ import { createOAuthDeviceAuth } from '@octokit/auth-oauth-device';
       }
     } catch (error) {
       echo`GitHub failed to authenticate. Please ensure you logging into the correct account`;
-      console.log(error);
     }
   }
 })();
