@@ -103,7 +103,7 @@ import { createOAuthDeviceAuth } from '@octokit/auth-oauth-device';
       echo`Creating a pull request...`;
 
       let PR_RETRIES = 6;
-      const owner = 'b-a-merritt';
+      const owner = repo.data.owner.login;
 
       while (PR_RETRIES > 0) {
         try {
@@ -114,7 +114,7 @@ import { createOAuthDeviceAuth } from '@octokit/auth-oauth-device';
               repo: 'soul-refiner-assessment',
               title: `Pull request for ${owner} to review`,
               body: 'Please review this pull request to continue with your application process',
-              head: 'b-a-merritt:pullrequest',
+              head: `${owner}:pullrequest`,
               base: 'main',
               headers: {
                 Accept: 'application/vnd.github+json',
