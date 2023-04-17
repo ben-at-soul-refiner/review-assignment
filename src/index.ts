@@ -15,9 +15,6 @@ import { createOAuthDeviceAuth } from '@octokit/auth-oauth-device';
     { choices: ['1', '2'] }
   );
 
-  /**
-   * @todo enter REPOSITORY here and CONTACT INFO here
-   */
   if (position === '1') {
     console.clear();
     echo`Please familiarize yourself with this repo prior to your interview\n`;
